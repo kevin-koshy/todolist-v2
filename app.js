@@ -49,7 +49,7 @@ app.get("/", function(req, res) {
 
 
 
-  res.render("list", {listTitle: "Today", newListItems: items});
+  res.render("list", {listTitle: "Today", newListItems: defaultItems});
 
 });
 
