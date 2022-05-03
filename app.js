@@ -67,7 +67,6 @@ app.post("/", function(req, res){
   item.save();
   res.redirect("/");
 
-
   // if (req.body.list === "Work") {
   //   workItems.push(item);
   //   res.redirect("/work");
@@ -76,6 +75,21 @@ app.post("/", function(req, res){
   //   res.redirect("/");
   // }
 });
+
+app.post("/delete", function (req, res){
+     const checkedItemID = req.body.checkbox;
+     Item.findByIdAndRemove(checkedItemID, function(err){
+         if(err){
+             console.log(err);
+         }
+         else {
+             console.log(checkedItemID + " deleted");
+             res.redirect("/");
+         }
+     })
+})
+
+
 
 app.get("/work", function(req,res){
   res.render("list", {listTitle: "Work List", newListItems: workItems});
