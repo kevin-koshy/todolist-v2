@@ -101,7 +101,7 @@ app.post("/delete", function (req, res){
          }
          else {
              console.log(checkedItemID + " deleted");
-             res.redirect("/");
+             // res.redirect("/");
          }
      })
      }
